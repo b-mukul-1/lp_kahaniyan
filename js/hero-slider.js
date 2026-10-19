@@ -84,13 +84,19 @@ class HeroImageSlider {
     if (this.container) {
       this.container.addEventListener('pointerdown', () => {
         this.isPaused = true;
+        const curVid = this.slides[this.currentIndex]?.querySelector('video');
+        if (curVid) curVid.pause();
       });
       this.container.addEventListener('pointerup', () => {
         this.isPaused = false;
         this.startTime = performance.now() - (this.lastProgress || 0) * this.slideDuration;
+        const curVid = this.slides[this.currentIndex]?.querySelector('video');
+        if (curVid) curVid.play().catch(() => {});
       });
       this.container.addEventListener('pointercancel', () => {
         this.isPaused = false;
+        const curVid = this.slides[this.currentIndex]?.querySelector('video');
+        if (curVid) curVid.play().catch(() => {});
       });
     }
   }
@@ -98,12 +104,20 @@ class HeroImageSlider {
   showSlide(index) {
     this.currentIndex = (index + this.totalSlides) % this.totalSlides;
 
-    // Update slides class
+    // Update slides class and video playback
     this.slides.forEach((slide, idx) => {
+      const vid = slide.querySelector('video');
       if (idx === this.currentIndex) {
         slide.classList.add('active');
+        if (vid) {
+          vid.currentTime = 0;
+          vid.play().catch(() => {});
+        }
       } else {
         slide.classList.remove('active');
+        if (vid) {
+          vid.pause();
+        }
       }
     });
 

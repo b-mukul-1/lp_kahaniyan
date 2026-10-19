@@ -248,30 +248,36 @@ body {
   z-index: 2;
 }
 
+.hero-slide-media,
 .hero-slide-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transform: scale(1);
   transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
   filter: contrast(1.06) brightness(1.02);
 }
 
+.hero-slide.active .hero-slide-media,
 .hero-slide.active .hero-slide-img {
-  transform: scale(1.05); /* Subtle cinematic Ken Burns effect */
+  transform: scale(1.04); /* Subtle cinematic Ken Burns effect */
 }
 
 /* Individual Slide Object Positioning for optimal face and body framing */
-.hero-slide-img.slide-hero-1 {
+.hero-slide-img.slide-hero-1,
+.hero-slide[data-slide="0"] .hero-slide-media {
   object-position: center 15%; /* Shows full face, eyes, saree, and lamp */
 }
 
-.hero-slide-img.slide-hero-2 {
+.hero-slide-img.slide-hero-2,
+.hero-slide[data-slide="1"] .hero-slide-media {
   object-position: center 20%; /* Shows doorway, girl in kurta, and neighbor */
 }
 
-.hero-slide-img.slide-hero-3 {
-  object-position: center 32%; /* Shows entire couple, heads, eyes, clasped hands, and bed */
+.hero-slide-img.slide-hero-3,
+.hero-slide[data-slide="2"] .hero-slide-media {
+  object-position: center 25%; /* Shows entire couple, heads, eyes, clasped hands */
 }
 
 /* Story Progress Indicators (Instagram / OTT Story style) */
