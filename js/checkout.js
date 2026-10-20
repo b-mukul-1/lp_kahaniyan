@@ -53,22 +53,20 @@ class CheckoutModalController {
       }
     });
 
-    // UPI App options radio change
-    const upiRadios = document.querySelectorAll('input[name="selected_upi_app"]');
-    upiRadios.forEach(radio => {
-      radio.addEventListener('change', (e) => {
-        const inputWrap = document.getElementById('upiIdInputWrap');
-        if (inputWrap) {
-          if (e.target.value === 'custom') {
-            inputWrap.style.display = 'flex';
-          } else {
-            inputWrap.style.display = 'none';
-          }
-        }
+    // Tap an app below to subscribe instantly (Myuze style 1-tap UX)
+    const appTiles = document.querySelectorAll('.myuze-app-tile');
+    appTiles.forEach(tile => {
+      tile.addEventListener('click', (e) => {
+        const radio = tile.querySelector('input[type="radio"]');
+        if (radio) radio.checked = true;
+        // 1-tap fast authorization
+        setTimeout(() => {
+          this.handleSimulatedAuthorization();
+        }, 150);
       });
     });
 
-    // Form submission (Simulated mandate authorization)
+    // Form submission (Subscribe button or Enter key)
     if (this.form) {
       this.form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -85,13 +83,13 @@ class CheckoutModalController {
     if (this.successView) this.successView.style.display = 'none';
     if (this.btnAuthorize) {
       this.btnAuthorize.disabled = false;
-      this.btnAuthorize.innerHTML = `<span>AUTHORIZE ₹1 MANDATE</span><span class="cta-icon">➔</span>`;
+      this.btnAuthorize.textContent = 'Subscribe';
     }
 
     if (storyTitle && this.storyTitleTarget) {
       this.storyTitleTarget.textContent = `Includes: ${storyTitle}`;
     } else if (this.storyTitleTarget) {
-      this.storyTitleTarget.textContent = `Includes: "Bhabhi Ne Aakhir Aisa Kya Kiya?" + All Late Night Stories`;
+      this.storyTitleTarget.textContent = `Includes: "Bhabhi Ne Aakhir Aisa Kya Kiya?" + All 23 VIP Stories`;
     }
 
     const mobileInput = document.getElementById('mobileNumberInput');

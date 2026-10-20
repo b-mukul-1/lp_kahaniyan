@@ -313,10 +313,10 @@ class AudioTeaserPlayer {
       this.progressOverlay.style.width = `${(this.lockAt / this.duration) * 100}%`;
     }
     if (this.heroPlayActionText) {
-      this.heroPlayActionText.textContent = '🔒 Preview Locked @ 0:16 • VIP Pass ₹1';
+      this.heroPlayActionText.textContent = '🔒 Preview Locked @ 0:16 • Free Trial ₹0';
     }
     if (this.captionEl) {
-      this.captionEl.innerHTML = `<span style="color:#ef4444; font-weight:800;">🔒 PREVIEW LOCKED @ 0:16:</span> <em>Aage ka poora sach janne ke liye sirf ₹1 mein VIP pass shuru karein.</em>`;
+      this.captionEl.innerHTML = `<span style="color:#ef4444; font-weight:800;">🔒 PREVIEW LOCKED @ 0:16:</span> <em>Aage ka poora sach janne ke liye ₹0 mein Free Trial shuru karein.</em>`;
     }
 
     // Single biggest moment of intent: Auto-scroll to sticky footer & auto-open checkout if phone entered!
@@ -342,7 +342,7 @@ class AudioTeaserPlayer {
     if (cleanDigits.length === 10) {
       setTimeout(() => {
         if (window.checkoutController) {
-          window.checkoutController.open('VIP Pass ₹1 (Bhabhi Ne Aakhir Aisa Kya Kiya?)', cleanDigits);
+          window.checkoutController.open('1 Day FREE VIP Pass (Bhabhi Ne Aakhir Aisa Kya Kiya?)', cleanDigits);
         }
       }, 450);
     } else {

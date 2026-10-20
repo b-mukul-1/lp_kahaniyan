@@ -34,7 +34,7 @@ class HeroImageSlider {
       {
         tag: "⚡ Story 3: Band Kamre Ka Kissa",
         status: "LATE NIGHT SPECIAL",
-        badge: "ALL EPISODES IN ₹1"
+        badge: "FIRST 1 DAY @ ₹1"
       }
     ];
 

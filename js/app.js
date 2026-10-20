@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.badge-mature').forEach(b => b.style.opacity = '0.3');
         document.body.classList.add('discreet-active');
       } else {
-        document.title = 'RAAZ - Late Night Audio Stories | ₹1 Exclusive Access';
+        document.title = 'RAAZ - Late Night Audio Stories | 1 Day FREE Trial';
         discreetToggle.innerHTML = `<span>🔒 Discreet Mode</span>`;
         document.querySelectorAll('.badge-mature').forEach(b => b.style.opacity = '1');
         document.body.classList.remove('discreet-active');
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   storyCards.forEach(card => {
     card.addEventListener('click', (e) => {
       e.preventDefault();
-      const storyTitle = card.getAttribute('data-story-title') || 'VIP Pass ₹1';
+      const storyTitle = card.getAttribute('data-story-title') || '1 Day FREE VIP Pass';
       const slideIndex = card.getAttribute('data-slide-index');
 
       // Switch hero slider so visual context matches
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (digits.length === 10) {
       hidePhoneError();
       if (window.checkoutController) {
-        window.checkoutController.open('VIP Pass ₹1 (Bhabhi Ne Aakhir Aisa Kya Kiya?)', digits);
+        window.checkoutController.open('VIP Pass — First 1 Day @ Rs 1 (Bhabhi Ne Aakhir Aisa Kya Kiya?)', digits);
       }
     } else if (digits.length > 0) {
       showPhoneError('Kripya poora 10-digit mobile number enter karein');
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const digits = getCleanDigits();
       if (digits.length === 10) {
         if (window.checkoutController) {
-          window.checkoutController.open('VIP Pass ₹1', digits);
+          window.checkoutController.open('VIP Pass — First 1 Day @ Rs 1', digits);
         }
       } else {
         if (quickJoinCard) {
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const digits = getCleanDigits();
       if (digits.length === 10) {
         if (window.checkoutController) {
-          window.checkoutController.open('VIP Pass ₹1 (Midnight Special)', digits);
+          window.checkoutController.open('VIP Pass — First 1 Day @ Rs 1 (Midnight Special)', digits);
         }
       } else {
         const stickyBar = document.getElementById('stickyMobileBar');
