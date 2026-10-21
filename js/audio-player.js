@@ -313,10 +313,10 @@ class AudioTeaserPlayer {
       this.progressOverlay.style.width = `${(this.lockAt / this.duration) * 100}%`;
     }
     if (this.heroPlayActionText) {
-      this.heroPlayActionText.textContent = '🔒 Preview Locked @ 0:16 • Free Trial ₹0';
+      this.heroPlayActionText.textContent = '🔒 Preview Locked @ 0:16 • First 1 Day @ ₹1';
     }
     if (this.captionEl) {
-      this.captionEl.innerHTML = `<span style="color:#ef4444; font-weight:800;">🔒 PREVIEW LOCKED @ 0:16:</span> <em>Aage ka poora sach janne ke liye ₹0 mein Free Trial shuru karein.</em>`;
+      this.captionEl.innerHTML = `<span style="color:#ef4444; font-weight:800;">🔒 PREVIEW LOCKED @ 0:16:</span> <em>Aage ka poora sach janne ke liye sirf ₹1 mein VIP Pass shuru karein.</em>`;
     }
 
     // Single biggest moment of intent: Auto-scroll to sticky footer & auto-open checkout if phone entered!
