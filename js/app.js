@@ -282,15 +282,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const openLegalModal = (tabName = 'terms') => {
+  const openLegalModal = (tabName = 'about') => {
     if (!legalModal) return;
     const targetMap = {
+      'about': 'tab-about',
+      'contact': 'tab-contact',
       'terms': 'tab-terms',
       'privacy': 'tab-privacy',
+      'refund': 'tab-refund',
+      'shipping': 'tab-shipping',
       'mandate': 'tab-mandate',
       'grievance': 'tab-grievance'
     };
-    const targetPaneId = targetMap[tabName] || 'tab-terms';
+    const targetPaneId = targetMap[tabName] || 'tab-about';
     switchLegalTab(targetPaneId);
     legalModal.classList.add('active');
     document.body.style.overflow = 'hidden';
